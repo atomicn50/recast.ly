@@ -11,6 +11,12 @@ class App extends React.Component {
     };
   }
   
+listEntryClickHandler (props) {
+    this.setState({
+      currentVideo: props.video
+    });
+  }
+
   render() {
     return (
       <div>
@@ -24,7 +30,7 @@ class App extends React.Component {
             <div><h5><em></em> <VideoPlayer video={this.state.currentVideo} appState={this.state}/></h5></div>
           </div>
           <div className="col-md-5">
-            <div><h5><em></em> <VideoList videos={this.state.allVideos} appState={this.state}/> </h5></div>
+            <div><h5><em></em> <VideoList videos={this.state.allVideos} clickFunction={this.listEntryClickHandler.bind(this)}/> </h5></div>
           </div>
         </div>
       </div>
