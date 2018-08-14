@@ -6,23 +6,48 @@ class App extends React.Component {
     super(props);
     this.state = {
       allVideos: exampleVideoData,
-      currentVideo: exampleVideoData[0]
-    };
+      currentVideo: exampleVideoData[0],
+      searchBarValue: 'YEET'
+    }; 
   }
 
-  videoClickHandler(video) {
+  handleVideoClick(video) {
     this.setState({
       currentVideo: video
     });
   }
-  
 
+  handleSearchBarChange(event) {
+    this.setState({
+      searchBarValue: event.target.value 
+    });
+  }
+
+  updateVideoState(data) {
+    this.setState({
+      allVideos: data,
+      currentVideo: data[0]
+    });
+  }
+
+  handleSearchBarSubmit() {
+    var options = {
+      key: YOUTUBE_API_KEY,
+      query: this.state.searchBarValue,
+      max: 5
+    };
+
+    searchYouTube(options, this.updateVideoState.bind(this));
+  }
+
+  
   render() {
     return (
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> <Search/> </h5></div>
+            <div><h5><em>search</em> <Search value={this.state.searchBarValue} clickFunction={this.handleSearchBarSubmit.bind(this)} 
+          changeFunction={this.handleSearchBarChange.bind(this)}/> </h5></div>
           </div>
         </nav>
         <div className="row">
@@ -30,7 +55,7 @@ class App extends React.Component {
             <div><h5><em></em> <VideoPlayer video={this.state.currentVideo} /></h5></div>
           </div>
           <div className="col-md-5">
-            <div><h5><em></em> <VideoList videos={this.state.allVideos} clickFunction={this.videoClickHandler.bind(this)}/> </h5></div>
+            <div><h5><em></em> <VideoList videos={this.state.allVideos} clickFunction={this.handleVideoClick.bind(this)}/> </h5></div>
           </div>
         </div>
       </div>
@@ -41,15 +66,3 @@ class App extends React.Component {
 
 window.App = App;
 
-
-
-
-//videoList
-
-//videolistEntry
-
-//videoPlayer
-
-//searchYoutube
-
-//search

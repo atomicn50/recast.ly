@@ -7,22 +7,16 @@ var searchYouTube = (options, callback) => {
     maxResults: options.max
   };
 
-  $.ajax({
-    url: 'https://www.googleapis.com/youtube/v3/search',
-    type: 'GET',
-    data: requestData,
-    dataType: 'json',
-    success: function(data) {
-      callback(data.items);
-    },
-    error: function() {
-      console.log('failed');
-    }
+
+  $.get('https://www.googleapis.com/youtube/v3/search', requestData, function(data) {
+    callback(data.items);
   });
 
 };
 
 window.searchYouTube = searchYouTube;
+
+
 
 
 /*
@@ -35,14 +29,16 @@ options = {
 }
 
 
-  // debugger;
   // $.ajax({
   //   url: 'https://www.googleapis.com/youtube/v3/search',
   //   type: 'GET',
-  //   data: JSON.stringify(options),
-  //   contentType: 'json',
+  //   data: requestData,
+  //   dataType: 'json',
   //   success: function(data) {
-  //     callback(data);
+  //     callback(data.items);
+  //   },
+  //   error: function() {
+  //     console.log('failed');
   //   }
   // });
 
