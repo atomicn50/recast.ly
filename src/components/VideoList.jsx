@@ -19,10 +19,3 @@ VideoList.propTypes = {
 // In the ES6 spec, files are "modules" and do not share a top-level scope.
 // `var` declarations will only exist globally where explicitly defined.
 window.VideoList = VideoList;
-
-  //   <div><h5><em></em> <VideoListEntry video={props.videos[0]}/> </h5></div>
-  //   <div><h5><em></em> <VideoListEntry video={props.videos[1]}/> </h5></div>
-  //   <div><h5><em></em> <VideoListEntry video={props.videos[2]}/> </h5></div>
-  //   <div><h5><em></em> <VideoListEntry video={props.videos[3]}/> </h5></div>
-  //   <div><h5><em></em> <VideoListEntry video={props.videos[4]}/> </h5></div>
-  // </div>

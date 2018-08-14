@@ -1,10 +1,8 @@
 var VideoListEntry = (props) => {
   var listEntryClickHandler = function() {
-  // console.log('I Am Clicked');
-    // VideoPlayer
-    // app.setState({
-    //   currentVideo: 
-    // })
+    props.appState.appReference.setState({
+      currentVideo: props.video
+    });
     console.log(props);
   };
 
