@@ -2,8 +2,8 @@ var VideoList = (props) => (
 
   //let videos = this.props.videos;
   <div className="video-list">
-    {props.videos.map((video, key) => 
-      <VideoListEntry video={video} key={key} />
+    {props.videos.map((video, index) => 
+      <VideoListEntry video={video} index={index} appState={props.appState}/>
     )}
   </div>
 //props.videos = [vid1, vid2, vid3]
