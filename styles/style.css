@@ -3,7 +3,9 @@
 body {
   background: #f1f1f1;
 }
-
+.btn {
+  border: 1px;
+}
 .navbar {
   background: #fff;
   margin-bottom: 20px;
@@ -25,7 +27,6 @@ body {
 }
 .search-bar .btn {
   border-radius: 2px;
-  border-color: #d3d3d3;
   background: #f8f8f8;
   width: 20%;
   margin-left: -1px;
@@ -85,7 +86,6 @@ body {
 }
 
 h5 {
-  border: 2px solid red;
   text-align: center;
   padding: 10px;
 }
